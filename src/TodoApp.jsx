@@ -107,7 +107,7 @@ function TodoApp() {
                 <div className="head">
               <h2>{heading}</h2>
                 <div className="todonav">
-                    <input type="text" 
+                    <input type="text" id='taskbox'
                     placeholder='your task'
                     value={task}
                     onChange={(e)=>{
@@ -115,7 +115,8 @@ function TodoApp() {
                     }
                     }
                     />
-                    <input type="date" 
+                    <div className="part2">
+                    <input type="date" id='datebox'
                     
                     value={deadline}
                     onChange={(e)=>{
@@ -129,7 +130,7 @@ function TodoApp() {
 
 
 
-                    }
+                    }</div>
                     {/*  */}
                 </div>
                 </div>
@@ -137,13 +138,20 @@ function TodoApp() {
             {todo.length>0?
                 todo.map((task)=>{
                     return <div className='todoitem' key={task.key}>
-                            <div className='task'>{task.tasktodo}</div>
-                            <h2 > {task.deadline}</h2>
+                            <div className='task'>
+                                <p>
+                                {task.tasktodo}</p>
+
+                            </div>
+
+                            <div id="itemcontrols">
+                            <h2 > <h4 className='red'>due date</h4>{task.deadline}</h2>
                             <FaEdit className='green' onClick={()=>editTodo(task.key)}/>
                             <button onClick={()=>deleteItem(task.key)}><FaTrash className='red' /></button>
+                            </div>
                            </div>
                     
-}):<span className='inittodo'><h1>no task is scheduled</h1></span>
+}):<span className='inittodo'><h1 >no task is scheduled</h1></span>
             }
            </div>
             </div>

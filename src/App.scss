@@ -19,7 +19,7 @@ background-size: cover;
       @include input;
       position: absolute;
       top: 2%;
-      left: 40%;
+      left: 20%;
       width: fit-content;
       color: black;
       font-weight: 400;
@@ -38,6 +38,18 @@ background-size: cover;
       display: flex;
       gap: 2rem;
       border-radius: 14px;
+      #datebox{
+        @include myInput(15rem);
+
+      }
+      .add{
+        color: rgb(250, 250, 250);
+        font-size: 2rem;
+        position: absolute;
+        right: 20px;
+        top: 30%;
+
+      }
       >svg{
         font-size: 2.5rem;
         position: absolute;
@@ -52,7 +64,7 @@ background-size: cover;
       >.add{
           color: white;
           background: transparent;
-          font-size: 1.4rem;
+          font-size: 1.5rem;
       }
   >input{
       @include myInput(15rem);
@@ -84,9 +96,41 @@ background-size: cover;
 }
 .todoitem{
   @include myInput;
+  #itemcontrols{
+    display: flex;
+    width: fit-content;
+  
+    margin-top: 1rem;
+    margin-right: auto;
+    left: 0;
+    justify-content: space-between;
+    padding: .5rem;
+    gap: 3vw;
+
+
+  >button{
+    color: red;
+    background: transparent;
+    position: absolute;
+    border: none;
+    font-size: 1.5rem;
+    right: 1rem;
+  }
+  >svg{
+    font-size: 1.7rem;
+    position: absolute;
+    right: 5rem;
+  }}
   >.task{
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     color: rgb(253, 253, 253);
+    flex-wrap: wrap;
+    padding: .6rem;
+    margin-bottom: 5px;
+//     overflow: auto;
+//     &::-webkit-scrollbar{
+//       visibility: hidden;
+//   }
   }
   margin:1.4rem 0;
   background-color: #38363671;
@@ -96,22 +140,12 @@ background-size: cover;
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   @include flex(row,unset,center,1.5rem);
   flex-wrap: wrap;
-  overflow: auto;
-  &::-webkit-scrollbar{
-    visibility: hidden;
-}
+//   overflow: auto;
+//   &::-webkit-scrollbar{
+//     visibility: hidden;
+// }
 
-  >button{
-    color: red;
-    background: transparent;
-    position: absolute;
-    right: 1rem;
-  }
-  >svg{
-    font-size: 1.4rem;
-    position: absolute;
-    right: 5rem;
-  }
+
 }
 
 @media (max-width:674px){
@@ -128,37 +162,49 @@ background-image: url("./assets/backtodo.png");
         .head{
             background-image: url("./assets/backtodo.png");
             width: 100%;
-            height:25vh;
             position: fixed;
+           
             z-index: 9999;
             top: 0;
             background-color: rgb(143, 136, 136);
         >h2{
             position: fixed;
-            left: 30%;
+            left: 10%;
             top: 2%;
+            
             padding: .51rem;
             z-index: 99;
             background-color: #ffffff;
-            border-radius: 2px;
-            box-shadow: none;
+            border-radius: 12px;
+            box-shadow: 2px 2px 3px rgb(31, 31, 31),-2px -2px 3px rgb(236, 236, 236);
+
 
         }
     >.todonav{
-        width:90%;
-        padding:1rem 0.5rem;
+        width:80%;
+        position: relative;
+        height:10%;
+        padding:.5rem 0.5rem;
         position: fixed;
+        top: 2rem;
         left:.22px;
         border-radius: 1px;
-        margin:2rem 1rem;
-        z-index: 9999;
+        border-radius: 12px;
+        box-shadow: 2px 2px 3px black,-2px -2px 3px rgb(177, 177, 177);
         display: flex;
+        flex-direction: column;
+        z-index: 9999;
         gap:.52rem;
-        margin-top: 5rem;
-        background-color: rgba(6, 7, 82, 0.918);
+        background-color: rgba(2, 92, 104, 0.918);
 
-        >input{
-            width: 10rem;
+        >#taskbox{
+            width:60%;
+            height:2px;
+            position: absolute;
+            box-shadow: 2px 2px 3px black,-2px -2px 3px rgb(177, 177, 177);
+
+            left: 20px;
+            background-color: rgb(248, 248, 248);
             margin-left: 2px;
             font-weight: 600;
             font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -168,8 +214,31 @@ background-image: url("./assets/backtodo.png");
             font-size: .98rem;
         }
         .add{
-            color: white;
+            color: rgb(0, 248, 236);
             font-size: 2.4rem;
+        }
+        .part2{
+            display: flex;
+            gap: 4vw;
+            width: 80%;
+            position: absolute;
+            top: 50%;
+            left: 8%;
+            >#datebox{
+                width:60%;
+                height:20px;
+                padding: .4rem;
+                border: none;
+                border-radius: 8px;
+                background-color: rgb(248, 248, 248);
+                margin-left: 2px;
+                font-weight: 600;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+             
+    
+                color: rgb(7, 7, 7);
+                font-size: .68rem;
+            }
         }
     }
        
@@ -177,7 +246,8 @@ background-image: url("./assets/backtodo.png");
     >.todolistitem{
         position: absolute;
         top: 12rem;
-        width:96%;z-index: 2;
+        width:96%;
+        z-index: 2;
         
     }
 }
@@ -187,28 +257,25 @@ background-image: url("./assets/backtodo.png");
     z-index: 10;
     background-color: #bbc0c096;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     color: rgb(0, 0, 0);
     >.task{
         display: flex;
         flex-wrap: wrap;
-        overflow: auto;
+        // overflow: auto;
+        font-size: 1.2rem;
+        color: black;
 
-        margin: .5rem; &::-webkit-scrollbar{
-            visibility: hidden;
-        }
 
     }
-    overflow: auto;
-    font-size: 2vw;
-    &::-webkit-scrollbar{
-        visibility: hidden;
-    }
+  
     font-size: 3vw;
     text-transform: capitalize;
     font-family:'Times New Roman', Times, serif;
     backdrop-filter: blur(10px);
     box-shadow: none;
+    
     >svg{
         font-size: 1.5rem;
         position: absolute;
@@ -224,7 +291,7 @@ background-image: url("./assets/backtodo.png");
         position: absolute;
         right: 10px;
         color: rgb(255, 0, 106);
-        font-size: 1.5rem;
+        font-size: 1.1rem;
         &:hover{
             border: none;
             cursor: pointer;
@@ -233,8 +300,80 @@ background-image: url("./assets/backtodo.png");
             border: none
 
         }
-    }
+    
+}
     @include flex(row,unset,center,2.5rem);
     flex-wrap: wrap;
   }
+}
+
+@media (max-width:674px){
+
+.todoitem{
+display: flex;
+flex-wrap: wrap;
+max-width: 380px;
+flex-direction: column;
+gap: 2px;
+width: fit-content;
+padding: 1rem;
+
+
+>.task{
+    max-width: 370px;
+    height: 5vh;
+    display: flex;
+    flex-wrap: wrap;
+
+
+}&:hover{
+    color: white;
+    >.task{
+        color: white;
+    }
+}
+
+#itemcontrols{
+    display: flex;
+    width: fit-content;
+  
+    margin-top: 1.5rem;
+    margin-right: auto;
+    left: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem;
+    gap: 6vw;
+
+    >svg{
+        font-size: 1.5rem;
+        
+    }
+    &:hover{
+        background-color: #d6d4d4b0;
+        color: rgb(8, 8, 8);
+    }
+    >button{
+        background:transparent;
+        cursor: pointer;
+      
+        color: rgb(255, 0, 106);
+        font-size: 1.1rem;
+        border: none;
+        &:hover{
+            border: none;
+            cursor: pointer;
+        }
+        &:active{
+            border: none
+
+        }
+    
+}
+}}
+}
+
+.red{
+    color: rgb(209, 3, 3);
+    
 }
