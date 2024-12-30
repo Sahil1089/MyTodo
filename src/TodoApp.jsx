@@ -104,7 +104,7 @@ function TodoApp() {
         <main className='coupon-container'>
           
             <div className="todocontainer">
-                <div className="head">
+                <div id="head">
               <h2>{heading}</h2>
                 <div className="todonav">
                     <input type="text" id='taskbox'
@@ -134,6 +134,7 @@ function TodoApp() {
                     {/*  */}
                 </div>
                 </div>
+                
                 <div className="todolistitem">
             {todo.length>0?
                 todo.map((task)=>{
