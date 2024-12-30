@@ -1,0 +1,77 @@
+.green{
+    color: rgb(9, 248, 9);
+    
+}
+
+
+@mixin heading($spacing:3px ,$weight:300,$case:uppercase){
+    letter-spacing: $spacing;
+    font-weight: $weight;
+    text-transform: $case;
+
+}
+@mixin flex($dir:row, $justify-content:center ,$align:center,$gap:1rem){
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justify-content;
+    align-items: $align;
+    gap: $gap;
+
+}
+
+@mixin grid(
+    $col:1fr,
+    $gap:1rem,
+    $row:unset){
+   display: grid;
+   grid-template-columns: $col;
+   grid-template-rows: $row;
+   gap: $gap;
+
+}
+@mixin input($w:100% ,$bgcolor:inherit,$p:1rem,$border:none){
+  width: $w;
+  background-color: $bgcolor;
+  padding: $p;
+  border: $border;
+  outline: none;
+  background-color: #fff;
+
+
+}
+@mixin button($c:#0c847e,$w:100%,$h:5vh){
+    background-color: $c;
+    height: $h;
+    width: $w;
+    border: none;
+  
+    box-shadow: 4.1px 3.4px 2px rgba(82, 82, 82, 0.42) , -3px -4px 2px rgba(255, 255, 255, 0.521);
+   
+
+}
+@mixin myInput($w:100%){
+    
+        border: none;
+        padding: 1rem;
+        color: black;
+        width:$w;
+
+        border-radius: 12px;
+        outline: none;
+        background-color: #fff;
+        box-shadow: 4.1px 3.4px 2px rgba(54, 54, 54, 0.42) , -3px -4px 4px rgba(141, 140, 140, 0.432);
+
+    }
+
+@mixin posc(){
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  
+
+}
+@mixin square($s:1rem){
+    height: $s;
+    width: $s;
+}

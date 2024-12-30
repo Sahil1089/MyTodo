@@ -1,0 +1,240 @@
+@import "mixin" ;
+*{
+    margin: 0;
+}
+body{
+    width: 100%;
+}
+
+.todocontainer{
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20231001/pngtree-completed-to-do-list-icon-a-3d-rendering-of-a-notebook-image_13576111.png");
+background-size: cover;
+  position: relative;
+  background-color: rgb(2, 92, 99);
+  .head{
+  >h2{
+      @include heading;
+      @include input;
+      position: absolute;
+      top: 2%;
+      left: 40%;
+      width: fit-content;
+      color: black;
+      font-weight: 400;
+      padding: 1rem 1.4rem;
+      border-radius: 12px;
+      box-shadow: 4.1px 3.4px 2px rgba(128, 128, 128, 0.42) , -3px -4px 4px rgba(238, 239, 237, 0.86);
+
+  }
+  >.todonav{
+    position: absolute;
+    top: 5%;
+      height: 4vh;
+      width:80%;
+      padding: 1.6rem 2rem;
+      margin: 1rem;
+      display: flex;
+      gap: 2rem;
+      border-radius: 14px;
+      >svg{
+        font-size: 2.5rem;
+        position: absolute;
+        right: 20px;
+      }
+
+
+      position: absolute;
+      @include flex(row,unset,center,2.32rem);
+      margin-top: 5rem;
+      background-color: rgba(18, 111, 114, 0.795);
+      >.add{
+          color: white;
+          background: transparent;
+          font-size: 1.4rem;
+      }
+  >input{
+      @include myInput(15rem);
+  }
+  }}
+  .todolistitem{
+      position: absolute;
+      top: 12rem;
+      width: 86%;
+      margin:2rem 1rem;
+     
+      z-index: 9999;
+      >.inittodo{
+          position: absolute;
+          left:2px;
+          top: 6rem;
+          color: rgb(116, 12, 12);
+          background-color: #dad5d5;
+          border-radius: 12px;
+          text-transform: capitalize;
+          padding: 2rem;
+          box-shadow: 4.1px 3.4px 2px rgba(128, 128, 128, 0.42) , -3px -4px 4px rgba(238, 239, 237, 0.86);
+
+          
+
+      }
+  }
+  
+}
+.todoitem{
+  @include myInput;
+  >.task{
+    font-size: 1.8rem;
+    color: rgb(253, 253, 253);
+  }
+  margin:1.4rem 0;
+  background-color: #38363671;
+  text-transform: capitalize;
+  font-weight: 500;
+  color: rgb(201, 201, 201);
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  @include flex(row,unset,center,1.5rem);
+  flex-wrap: wrap;
+  overflow: auto;
+  &::-webkit-scrollbar{
+    visibility: hidden;
+}
+
+  >button{
+    color: red;
+    background: transparent;
+    position: absolute;
+    right: 1rem;
+  }
+  >svg{
+    font-size: 1.4rem;
+    position: absolute;
+    right: 5rem;
+  }
+}
+
+@media (max-width:674px){
+    .todocontainer{
+        background-color: rgb(8, 132, 148);
+
+        
+object-fit: cover;
+background-image: url("./assets/backtodo.png");
+  overflow:auto;
+        &::-webkit-scrollbar{
+            visibility: hidden;
+        }
+        .head{
+            background-image: url("./assets/backtodo.png");
+            width: 100%;
+            height:25vh;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            background-color: rgb(143, 136, 136);
+        >h2{
+            position: fixed;
+            left: 30%;
+            top: 2%;
+            padding: .51rem;
+            z-index: 99;
+            background-color: #ffffff;
+            border-radius: 2px;
+            box-shadow: none;
+
+        }
+    >.todonav{
+        width:90%;
+        padding:1rem 0.5rem;
+        position: fixed;
+        left:.22px;
+        border-radius: 1px;
+        margin:2rem 1rem;
+        z-index: 9999;
+        display: flex;
+        gap:.52rem;
+        margin-top: 5rem;
+        background-color: rgba(6, 7, 82, 0.918);
+
+        >input{
+            width: 10rem;
+            margin-left: 2px;
+            font-weight: 600;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+         
+
+            color: rgb(7, 7, 7);
+            font-size: .98rem;
+        }
+        .add{
+            color: white;
+            font-size: 2.4rem;
+        }
+    }
+       
+    }
+    >.todolistitem{
+        position: absolute;
+        top: 12rem;
+        width:96%;z-index: 2;
+        
+    }
+}
+.todoitem{
+    @include myInput;
+    margin:1.4rem .2rem;
+    z-index: 10;
+    background-color: #bbc0c096;
+    display: flex;
+    flex-wrap: wrap;
+    color: rgb(0, 0, 0);
+    >.task{
+        display: flex;
+        flex-wrap: wrap;
+        overflow: auto;
+
+        margin: .5rem; &::-webkit-scrollbar{
+            visibility: hidden;
+        }
+
+    }
+    overflow: auto;
+    font-size: 2vw;
+    &::-webkit-scrollbar{
+        visibility: hidden;
+    }
+    font-size: 3vw;
+    text-transform: capitalize;
+    font-family:'Times New Roman', Times, serif;
+    backdrop-filter: blur(10px);
+    box-shadow: none;
+    >svg{
+        font-size: 1.5rem;
+        position: absolute;
+        right: 90px;
+    }
+    &:hover{
+        background-color: #0f0f0fb0;
+        color: rgb(255, 255, 255);
+    }
+    >button{
+        background:transparent;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        color: rgb(255, 0, 106);
+        font-size: 1.5rem;
+        &:hover{
+            border: none;
+            cursor: pointer;
+        }
+        &:active{
+            border: none
+
+        }
+    }
+    @include flex(row,unset,center,2.5rem);
+    flex-wrap: wrap;
+  }
+}
